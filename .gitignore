@@ -1,0 +1,28 @@
+# Gradle files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+
+# Minecraft & NeoForge runtime / test runs
+run/
+runs/
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Local configuration overrides
+local.properties
+gradle.properties.local
