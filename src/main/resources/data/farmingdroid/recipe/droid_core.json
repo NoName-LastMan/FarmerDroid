@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CRC",
+    "RKR",
+    "CRC"
+  ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "R": { "item": "minecraft:redstone" },
+    "K": { "item": "minecraft:clock" }
+  },
+  "result": {
+    "id": "farmingdroid:droid_core",
+    "count": 1
+  }
+}

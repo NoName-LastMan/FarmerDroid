@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "PKP",
+    " S "
+  ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "P": { "item": "minecraft:piston" },
+    "K": { "item": "farmingdroid:droid_core" },
+    "S": { "item": "minecraft:campfire" }
+  },
+  "result": {
+    "id": "farmingdroid:farming_droid",
+    "count": 1
+  }
+}

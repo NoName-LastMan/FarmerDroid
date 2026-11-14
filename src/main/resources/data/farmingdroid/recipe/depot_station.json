@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "HFB",
+    "CCC"
+  ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "H": { "item": "minecraft:hopper" },
+    "F": { "item": "minecraft:blast_furnace" },
+    "B": { "item": "minecraft:barrel" }
+  },
+  "result": {
+    "id": "farmingdroid:depot_station",
+    "count": 1
+  }
+}

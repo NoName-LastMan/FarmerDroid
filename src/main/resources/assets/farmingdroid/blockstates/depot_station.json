@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "farmingdroid:block/depot_station" },
+    "facing=south": { "model": "farmingdroid:block/depot_station", "y": 180 },
+    "facing=west": { "model": "farmingdroid:block/depot_station", "y": 270 },
+    "facing=east": { "model": "farmingdroid:block/depot_station", "y": 90 }
+  }
+}

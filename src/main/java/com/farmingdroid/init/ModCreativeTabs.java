@@ -15,10 +15,15 @@ public class ModCreativeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FARMING_DROID_TAB =
             CREATIVE_MODE_TABS.register("farmingdroid_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.farmingdroid"))
-                    .icon(() -> new ItemStack(ModItems.DROID_CORE.get()))
+                    .icon(() -> new ItemStack(ModItems.FARMING_DROID_ITEM.get()))
                     .displayItems((parameters, output) -> {
+                        output.accept(ModItems.WRENCH.get());
+                        output.accept(ModItems.FARMING_DROID_ITEM.get());
+                        output.accept(ModItems.DEPOT_STATION_ITEM.get());
+                        output.accept(ModItems.RANGE_UPGRADE_1.get());
+                        output.accept(ModItems.RANGE_UPGRADE_2.get());
+                        output.accept(ModItems.RANGE_UPGRADE_3.get());
                         output.accept(ModItems.DROID_CORE.get());
-                        output.accept(ModItems.FARMING_REMOTE.get());
                     })
                     .build());
 }
