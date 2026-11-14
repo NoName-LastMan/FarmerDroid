@@ -1,9 +1,11 @@
 package com.farmingdroid.entity;
 
 import com.farmingdroid.block.entity.DepotStationBlockEntity;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -170,6 +172,15 @@ public class FarmingDroidEntity extends PathfinderMob {
             case DOCKED_IDLE:
                 // Stay still at depot
                 this.getNavigation().stop();
+
+                // Frequently check depot for missing hoe or fuel (every 10 ticks)
+                if (this.tickCount % 10 == 0) {
+                    DepotStationBlockEntity depot = getDepotBlockEntity();
+                    if (depot != null) {
+                        if (this.currentHoe.isEmpty()) depot.provideHoe(this);
+                        if (getFuel() < MAX_FUEL) depot.refuelDroid(this);
+                    }
+                }
 
                 scanCooldown--;
                 if (scanCooldown <= 0) {
@@ -399,10 +410,54 @@ public class FarmingDroidEntity extends PathfinderMob {
         return null;
     }
 
-    // Direct manual interaction: right-click with fuel when stalled or running low
+    // Direct manual interaction: right-click with fuel or hoe
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemInHand = player.getItemInHand(hand);
+
+        // Check Hoe interaction
+        boolean isHoe = itemInHand.is(net.minecraft.tags.ItemTags.HOES) || itemInHand.getItem() instanceof HoeItem;
+        if (isHoe) {
+            if (!level().isClientSide()) {
+                if (this.currentHoe.isEmpty()) {
+                    setHoeItem(itemInHand.copyWithCount(1));
+                    if (!player.getAbilities().instabuild) {
+                        itemInHand.shrink(1);
+                    }
+                    level().playSound(null, this.blockPosition(), SoundEvents.ARMOR_EQUIP_IRON.value(), SoundSource.NEUTRAL, 0.8F, 1.2F);
+                    player.displayClientMessage(
+                            Component.translatable("message.farmingdroid.hoe_equipped", this.currentHoe.getHoverName()).withStyle(ChatFormatting.GREEN),
+                            true
+                    );
+                    if (getFuel() > 0 && getDroidState() == DroidState.DOCKED_IDLE) {
+                        this.scanCooldown = 10;
+                    }
+                    return InteractionResult.SUCCESS;
+                } else if (player.isShiftKeyDown()) {
+                    ItemStack oldHoe = this.currentHoe.copy();
+                    setHoeItem(itemInHand.copyWithCount(1));
+                    if (!player.getAbilities().instabuild) {
+                        itemInHand.shrink(1);
+                        if (!player.getInventory().add(oldHoe)) {
+                            this.spawnAtLocation(oldHoe);
+                        }
+                    }
+                    level().playSound(null, this.blockPosition(), SoundEvents.ARMOR_EQUIP_IRON.value(), SoundSource.NEUTRAL, 0.8F, 1.2F);
+                    player.displayClientMessage(
+                            Component.translatable("message.farmingdroid.hoe_swapped", this.currentHoe.getHoverName()).withStyle(ChatFormatting.GREEN),
+                            true
+                    );
+                    return InteractionResult.SUCCESS;
+                } else {
+                    player.displayClientMessage(
+                            Component.translatable("message.farmingdroid.hoe_already_equipped", this.currentHoe.getHoverName()).withStyle(ChatFormatting.YELLOW),
+                            true
+                    );
+                    return InteractionResult.CONSUME;
+                }
+            }
+            return InteractionResult.sidedSuccess(level().isClientSide());
+        }
 
         if (!level().isClientSide()) {
             DepotStationBlockEntity depot = getDepotBlockEntity();

@@ -40,7 +40,7 @@ public class DepotStationMenu extends AbstractContainerMenu {
         this.addSlot(new Slot(container, DepotStationBlockEntity.SLOT_HOE, 26, 45) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return stack.getItem() instanceof HoeItem;
+                return stack.is(net.minecraft.tags.ItemTags.HOES) || stack.getItem() instanceof HoeItem;
             }
         });
 
@@ -89,7 +89,7 @@ public class DepotStationMenu extends AbstractContainerMenu {
                 }
             } else {
                 // Moving from player inventory into depot
-                if (current.getItem() instanceof HoeItem) {
+                if (current.is(net.minecraft.tags.ItemTags.HOES) || current.getItem() instanceof HoeItem) {
                     if (!this.moveItemStackTo(current, DepotStationBlockEntity.SLOT_HOE, DepotStationBlockEntity.SLOT_HOE + 1, false)) {
                         return ItemStack.EMPTY;
                     }

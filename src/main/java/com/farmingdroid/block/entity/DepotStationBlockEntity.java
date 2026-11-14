@@ -76,11 +76,16 @@ public class DepotStationBlockEntity extends BlockEntity implements Container, M
         }
     }
 
+    public boolean isHoe(ItemStack stack) {
+        if (stack.isEmpty()) return false;
+        return stack.is(net.minecraft.tags.ItemTags.HOES) || stack.getItem() instanceof HoeItem;
+    }
+
     public void provideHoe(FarmingDroidEntity droid) {
         if (!droid.getHoeItem().isEmpty()) return;
 
         ItemStack hoeStack = items.get(SLOT_HOE);
-        if (!hoeStack.isEmpty() && hoeStack.getItem() instanceof HoeItem) {
+        if (isHoe(hoeStack)) {
             droid.setHoeItem(hoeStack.copy());
             items.set(SLOT_HOE, ItemStack.EMPTY);
             setChanged();
