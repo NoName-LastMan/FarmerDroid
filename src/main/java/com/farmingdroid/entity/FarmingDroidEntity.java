@@ -295,7 +295,7 @@ public class FarmingDroidEntity extends PathfinderMob {
                 this.currentHoe.setDamageValue(this.currentHoe.getDamageValue() + 1);
                 if (this.currentHoe.getDamageValue() >= this.currentHoe.getMaxDamage()) {
                     this.currentHoe = ItemStack.EMPTY;
-                    level().playSound(null, pos, SoundEvents.ITEM_BREAK.value(), SoundSource.NEUTRAL, 0.8F, 1.0F);
+                    level().playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.NEUTRAL, 0.8F, 1.0F);
                 }
             }
 

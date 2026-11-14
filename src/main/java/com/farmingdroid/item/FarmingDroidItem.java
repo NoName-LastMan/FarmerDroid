@@ -36,7 +36,7 @@ public class FarmingDroidItem extends Item {
         Direction clickedFace = context.getClickedFace();
         BlockPos spawnPos = clickedPos.relative(clickedFace);
 
-        FarmingDroidEntity droid = ModEntities.FARMING_DROID.get().create(level, MobSpawnType.SPAWN_EGG);
+        FarmingDroidEntity droid = new FarmingDroidEntity(ModEntities.FARMING_DROID.get(), level);
         if (droid != null) {
             droid.moveTo(spawnPos.getX() + 0.5D, spawnPos.getY(), spawnPos.getZ() + 0.5D, context.getRotation(), 0.0F);
 

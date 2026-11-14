@@ -19,8 +19,5 @@ public class ModEntities {
                     EntityType.Builder.of(FarmingDroidEntity::new, MobCategory.MISC)
                             .sized(0.6F, 0.8F)
                             .clientTrackingRange(10)
-                            .build(ResourceKey.create(
-                                    Registries.ENTITY_TYPE,
-                                    ResourceLocation.fromNamespaceAndPath(FarmingDroid.MOD_ID, "farming_droid")
-                            )));
+                            .build("farming_droid"));
 }

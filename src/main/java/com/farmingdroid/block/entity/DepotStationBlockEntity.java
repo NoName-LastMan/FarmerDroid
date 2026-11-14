@@ -45,22 +45,19 @@ public class DepotStationBlockEntity extends BlockEntity implements Container, M
 
     public boolean isFuel(ItemStack stack) {
         if (stack.isEmpty()) return false;
-        if (level != null) {
-            try {
-                return level.fuelValues().burnDuration(stack) > 0;
-            } catch (Exception ignored) {}
-        }
+        try {
+            int burn = stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
+            if (burn > 0) return true;
+        } catch (Exception ignored) {}
         return stack.is(Items.COAL) || stack.is(Items.CHARCOAL) || stack.is(Items.BLAZE_ROD) || stack.is(Items.COAL_BLOCK);
     }
 
     public int getBurnDuration(ItemStack stack) {
         if (stack.isEmpty()) return 0;
-        if (level != null) {
-            try {
-                int burn = level.fuelValues().burnDuration(stack);
-                if (burn > 0) return burn;
-            } catch (Exception ignored) {}
-        }
+        try {
+            int burn = stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
+            if (burn > 0) return burn;
+        } catch (Exception ignored) {}
         if (stack.is(Items.COAL) || stack.is(Items.CHARCOAL)) return 1600;
         if (stack.is(Items.BLAZE_ROD)) return 2400;
         if (stack.is(Items.COAL_BLOCK)) return 16000;
