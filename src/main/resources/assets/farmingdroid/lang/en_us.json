@@ -1,10 +1,7 @@
 {
   "itemGroup.farmingdroid": "Steampunk Farming Droid",
-  "block.farmingdroid.depot_station": "Depot Station",
-  "item.farmingdroid.depot_station": "Depot Station",
   "item.farmingdroid.farming_droid": "Farming Droid",
   "entity.farmingdroid.farming_droid": "Farming Droid",
-  "container.farmingdroid.depot_station": "Depot Logistics Hub",
   "tooltip.farmingdroid.droid_desc": "Autonomous steam-powered agricultural drone.",
   "tooltip.farmingdroid.droid_placement_rule": "Deployment: Can ONLY be deployed on top of a Depot Station.",
   "tooltip.farmingdroid.droid_fuel_type": "Fuel: Coal, Charcoal, Blaze Rods.",

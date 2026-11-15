@@ -24,10 +24,7 @@ public class FarmingDroid {
         LOGGER.info("Initializing Steampunk Farming Droid Mod...");
 
         // Register Deferred Registers
-        ModBlocks.BLOCKS.register(modEventBus);
-        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
-        ModMenuTypes.MENUS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 

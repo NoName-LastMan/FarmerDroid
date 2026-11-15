@@ -20,7 +20,7 @@ public class ModCreativeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(CoreItems.STEAMPUNK_WRENCH.get());
                         output.accept(ModItems.FARMING_DROID_ITEM.get());
-                        output.accept(ModItems.DEPOT_STATION_ITEM.get());
+                        output.accept(CoreItems.DEPOT_STATION.get());
                         output.accept(CoreItems.RANGE_UPGRADE_TIER_1.get());
                         output.accept(CoreItems.RANGE_UPGRADE_TIER_2.get());
                         output.accept(CoreItems.RANGE_UPGRADE_TIER_3.get());
