@@ -1,40 +1,14 @@
 {
   "itemGroup.farmingdroid": "Steampunk Farming Droid",
-
   "block.farmingdroid.depot_station": "Depot Station",
   "item.farmingdroid.depot_station": "Depot Station",
-  "item.farmingdroid.wrench": "Steampunk Wrench",
   "item.farmingdroid.farming_droid": "Farming Droid",
-  "item.farmingdroid.droid_core": "Brass Droid Core",
-  "item.farmingdroid.range_upgrade_1": "Brass Range Upgrade (5x5)",
-  "item.farmingdroid.range_upgrade_2": "Iron Range Upgrade (7x7)",
-  "item.farmingdroid.range_upgrade_3": "Steam Overclocked Upgrade (9x9)",
   "entity.farmingdroid.farming_droid": "Farming Droid",
-
   "container.farmingdroid.depot_station": "Depot Logistics Hub",
-
-  "state.farmingdroid.docked": "Docked & Idle",
-  "state.farmingdroid.scanning": "Scanning Field",
-  "state.farmingdroid.working": "Harvesting & Planting",
-  "state.farmingdroid.returning": "Returning to Depot",
-  "state.farmingdroid.stalled": "STALLED (Out of Fuel!)",
-
-  "tooltip.farmingdroid.upgrade_range": "Expands Depot working range to %s area.",
-  "tooltip.farmingdroid.upgrade_instruction": "Insert into Depot Station upgrade slot.",
   "tooltip.farmingdroid.droid_desc": "Autonomous steam-powered agricultural drone.",
   "tooltip.farmingdroid.droid_placement_rule": "Deployment: Can ONLY be deployed on top of a Depot Station.",
   "tooltip.farmingdroid.droid_fuel_type": "Fuel: Coal, Charcoal, Blaze Rods.",
-  "tooltip.farmingdroid.wrench_1": "Right-click Droid: Inspect status",
-  "tooltip.farmingdroid.wrench_2": "Shift + Right-click Droid: Dismantle into inventory",
-  "tooltip.farmingdroid.wrench_3": "Right-click Depot Station: Set target docking station",
-
   "message.farmingdroid.place_on_depot_only": "⚠ Farming Droid can ONLY be deployed on top of a Depot Station!",
   "message.farmingdroid.droid_deployed": "✔ Farming Droid deployed & docked to Depot Station.",
-  "message.farmingdroid.hoe_equipped": "⛏ Equipped hoe: %s",
-  "message.farmingdroid.hoe_swapped": "⛏ Swapped hoe: %s",
-  "message.farmingdroid.hoe_already_equipped": "⛏ Hoe already equipped (%s). Sneak + Right-Click to swap.",
-  "message.farmingdroid.wrench_depot_selected": "Depot Station linked at [%s, %s, %s]!",
-  "message.farmingdroid.droid_picked_up": "Farming Droid collected into inventory.",
-  "message.farmingdroid.status_bar": "⚙ %s | Fuel: %s%% | Tool: %s",
-  "text.farmingdroid.none": "None (Needs Hoe!)"
+  "message.farmingdroid.droid_picked_up": "Farming Droid collected into inventory."
 }

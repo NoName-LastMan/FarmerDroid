@@ -8,7 +8,7 @@
   "key": {
     "C": { "item": "minecraft:copper_ingot" },
     "P": { "item": "minecraft:piston" },
-    "K": { "item": "farmingdroid:droid_core" },
+    "K": { "item": "droidcore:droid_core" },
     "S": { "item": "minecraft:campfire" }
   },
   "result": {

@@ -1,5 +1,6 @@
 package com.farmingdroid.init;
 
+import com.droids.core.init.CoreItems;
 import com.farmingdroid.FarmingDroid;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -17,13 +18,13 @@ public class ModCreativeTabs {
                     .title(Component.translatable("itemGroup.farmingdroid"))
                     .icon(() -> new ItemStack(ModItems.FARMING_DROID_ITEM.get()))
                     .displayItems((parameters, output) -> {
-                        output.accept(ModItems.WRENCH.get());
+                        output.accept(CoreItems.STEAMPUNK_WRENCH.get());
                         output.accept(ModItems.FARMING_DROID_ITEM.get());
                         output.accept(ModItems.DEPOT_STATION_ITEM.get());
-                        output.accept(ModItems.RANGE_UPGRADE_1.get());
-                        output.accept(ModItems.RANGE_UPGRADE_2.get());
-                        output.accept(ModItems.RANGE_UPGRADE_3.get());
-                        output.accept(ModItems.DROID_CORE.get());
+                        output.accept(CoreItems.RANGE_UPGRADE_TIER_1.get());
+                        output.accept(CoreItems.RANGE_UPGRADE_TIER_2.get());
+                        output.accept(CoreItems.RANGE_UPGRADE_TIER_3.get());
+                        output.accept(CoreItems.DROID_CORE.get());
                     })
                     .build());
 }

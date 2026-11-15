@@ -64,7 +64,7 @@ repositories {
 }
 
 dependencies {
-    // Add third-party library or mod dependencies here if needed
+    implementation 'com.droids.core:droidcore:1.0.0'
 }
 
 tasks.withType(JavaCompile).configureEach {
